@@ -15,24 +15,31 @@ function addMedicamento(){
 
     medicamento.push(remedio);
     renderTable();
+   
 
 }
 
 function renderTable(){
-    let table = document.getElementById(dataTable);
+    let table = document.getElementById('dataTable');
     table.innerHTML = `<tr>
-    <th>ID</th>
-    <th>Medicamento</th>
-    <th>Quantidade</th>
-    <th>Classe de Medicamento</th>
-    <th>Remover</th>
+    <th> ID </th>
+    <th> Medicamento </th>
+    <th> Quantidade </th>
+    <th> Classe de Medicamento </th>
+    <th> Remover </th>
 
     </tr>`
 
 for(let i = 0; i < medicamento.length; i++){
-    table.innerHTML = table.innerHTML + `<td>${i}</td>
-    <td>${medicamento[i].nomeMed}</td>
-    <td>${medicamento[i].qntMed}</td>
-    <td>${medicamento[i].classeMed}</td>`
+    table.innerHTML = table.innerHTML + `<td> ${i} </td>
+    <td> ${medicamento[i].nomeMed} </td>
+    <td> ${medicamento[i].qntMed} </td>
+    <td> ${medicamento[i].classeMed} </td>
+    <td> <img src="imagem/image 2.png" width ="15px" height="10px" onclick="removePet(${i})"</td>`
 }
+}
+
+function removePet(index){
+    medicamento.splice(index,1);
+    renderTable();
 }
